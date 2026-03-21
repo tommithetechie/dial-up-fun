@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Portal Loader</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Log On Modal Overlay -->
+    <div id="logon-modal" class="win95-window">
+        <div class="window-title-bar">
+            <span>Log On to Online Portal</span>
+            <div class="window-controls">
+                <button class="win-btn-small" disabled>?</button>
+                <button class="win-btn-small" disabled>X</button>
+            </div>
+        </div>
+        <div class="window-content">
+            <div class="logon-form">
+                <div class="input-group">
+                    <label>User name:</label>
+                    <input type="text" value="Guest" disabled class="win-input">
+                </div>
+                <div class="input-group">
+                    <label>Password:</label>
+                    <input type="password" value="********" disabled class="win-input">
+                </div>
+                <div class="input-group">
+                    <label>Domain:</label>
+                    <select disabled class="win-input">
+                        <option>INTERNET</option>
+                    </select>
+                </div>
+            </div>
+            <div class="logon-actions">
+                <button id="btn-connect" class="win-btn">Connect</button>
+                <button class="win-btn" disabled>Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Retro Loader Sequence -->
+    <div id="loading-container" class="win95-container hidden">
+        <div class="status-bar">
+            <span id="status-text">INITIALIZING...</span>
+        </div>
+
+        <div class="emblem-section">
+            <svg viewBox="0 0 120 120" class="emblem-logo" shape-rendering="crispEdges">
+                <!-- Base triangle -->
+                <polygon points="60,10 110,95 10,95" fill="#000080" />
+                <!-- Inner offset triangle -->
+                <polygon points="60,25 95,85 25,85" fill="#ffffff" />
+                <!-- Core dark triangle -->
+                <polygon points="60,40 80,75 40,75" fill="#000080" />
+                <!-- Circular cutout -->
+                <circle cx="60" cy="65" r="20" fill="#c0c0c0" />
+                <!-- Center detail -->
+                <circle cx="60" cy="65" r="10" fill="#ffffff" />
+                <circle cx="60" cy="65" r="4" fill="#000080" />
+            </svg>
+            <div class="emblem-text">Online Portal</div>
+        </div>
+
+        <div class="panels-wrapper">
+            <div class="panels">
+                <div class="panel panel-left">
+                    <div class="panel-content">
+                        <!-- Frame 1 -->
+                        <svg class="frame-svg" viewBox="0 0 64 64" preserveAspectRatio="xMidYMid meet"
+                            shape-rendering="crispEdges">
+                            <rect x="24" y="16" width="10" height="10" fill="#FFFF00" />
+                            <rect x="28" y="26" width="2" height="14" fill="#FFFF00" />
+                            <rect x="30" y="28" width="8" height="2" fill="#FFFF00" />
+                            <rect x="36" y="24" width="2" height="4" fill="#FFFF00" />
+                            <rect x="18" y="28" width="10" height="2" fill="#FFFF00" />
+                            <rect x="18" y="24" width="2" height="4" fill="#FFFF00" />
+                            <rect x="26" y="40" width="8" height="2" fill="#FFFF00" />
+                            <rect x="32" y="42" width="2" height="8" fill="#FFFF00" />
+                            <rect x="22" y="40" width="8" height="2" fill="#FFFF00" />
+                            <rect x="20" y="42" width="2" height="8" fill="#FFFF00" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="panel panel-mid">
+                    <div class="panel-content">
+                        <!-- Frame 2 -->
+                        <svg class="frame-svg" viewBox="0 0 64 64" preserveAspectRatio="xMidYMid meet"
+                            shape-rendering="crispEdges">
+                            <rect x="4" y="20" width="16" height="2" fill="#888888" />
+                            <rect x="2" y="32" width="22" height="2" fill="#888888" />
+                            <rect x="6" y="44" width="14" height="2" fill="#888888" />
+                            <rect x="18" y="26" width="10" height="2" fill="#BBBBBB" />
+                            <rect x="20" y="38" width="12" height="2" fill="#BBBBBB" />
+                            <rect x="42" y="18" width="10" height="10" fill="#FFFF00" />
+                            <rect x="30" y="28" width="12" height="2" fill="#FFFF00" />
+                            <rect x="20" y="26" width="10" height="2" fill="#FFFF00" />
+                            <rect x="24" y="30" width="8" height="2" fill="#FFFF00" />
+                            <rect x="22" y="38" width="14" height="2" fill="#FFFF00" />
+                            <rect x="36" y="38" width="2" height="10" fill="#FFFF00" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="panel panel-right">
+                    <div class="panel-content">
+                        <!-- Frame 3 -->
+                        <svg class="frame-svg" viewBox="0 0 64 64" preserveAspectRatio="xMidYMid meet"
+                            shape-rendering="crispEdges">
+                            <!-- Yellow Figure left side -->
+                            <rect x="8" y="20" width="10" height="10" fill="#FFFF00" />
+                            <rect x="12" y="30" width="2" height="14" fill="#FFFF00" />
+                            <rect x="4" y="16" width="2" height="14" fill="#FFFF00" />
+                            <rect x="20" y="16" width="2" height="14" fill="#FFFF00" />
+                            <rect x="10" y="44" width="2" height="10" fill="#FFFF00" />
+                            <rect x="14" y="44" width="2" height="10" fill="#FFFF00" />
+
+                            <!-- Crowd / people jumping -->
+                            <!-- Red person -->
+                            <rect x="34" y="30" width="6" height="6" fill="#FF0000" />
+                            <rect x="36" y="36" width="2" height="12" fill="#FF0000" />
+                            <rect x="32" y="38" width="8" height="2" fill="#FF0000" />
+
+                            <!-- Blue person -->
+                            <rect x="44" y="24" width="6" height="6" fill="#0000FF" />
+                            <rect x="46" y="30" width="2" height="12" fill="#0000FF" />
+                            <rect x="42" y="32" width="10" height="2" fill="#0000FF" />
+                            <rect x="46" y="42" width="2" height="4" fill="#0000FF" />
+
+                            <!-- Cyan person -->
+                            <rect x="54" y="32" width="6" height="6" fill="#00FFFF" />
+                            <rect x="56" y="38" width="2" height="10" fill="#00FFFF" />
+                            <rect x="52" y="40" width="10" height="2" fill="#00FFFF" />
+
+                            <!-- Banner -->
+                            <rect x="30" y="6" width="30" height="6" fill="#FF00FF" />
+                            <rect x="30" y="12" width="4" height="4" fill="#FF00FF" />
+                            <rect x="42" y="12" width="6" height="4" fill="#FF00FF" />
+                            <rect x="56" y="12" width="4" height="4" fill="#FF00FF" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="actions">
+            <button id="btn-abort" class="win-btn">Stop or Abort</button>
+        </div>
+    </div>
+
+    <!-- AOL Workspace -->
+    <div id="workspace-container" class="aol-workspace hidden">
+        <!-- AOL Menu & Toolbar -->
+        <div class="aol-menubar">
+            <div class="aol-menu-items">
+                <span>File</span><span>Edit</span><span>Window</span><span>Sign Off</span><span>Help</span>
+            </div>
+            <div class="aol-logo-container">
+                <div class="aol-logo-triangle"></div>
+                <span class="aol-logo-text">AOL</span>
+            </div>
+        </div>
+
+        <div class="aol-toolbar">
+            <div class="toolbar-btn"><span class="icon mail"></span>Read</div>
+            <div class="toolbar-btn"><span class="icon write"></span>Write</div>
+            <div class="toolbar-divider"></div>
+            <div class="toolbar-btn"><span class="icon people"></span>People</div>
+            <div class="toolbar-btn"><span class="icon internet"></span>Internet</div>
+            <div class="toolbar-divider"></div>
+            <div class="toolbar-btn"><span class="icon weather"></span>Weather</div>
+        </div>
+
+        <!-- AOL URL Bar -->
+        <div class="aol-urlbar">
+            <span>Find</span>
+            <input type="text" value="KEYWORD: AOL Today" disabled class="win-input">
+            <button class="win-btn-small" style="font-family: Arial, sans-serif;">Go</button>
+        </div>
+
+        <!-- Desktop Area -->
+        <div class="aol-desktop">
+            <!-- AOL Today Window -->
+            <div class="win95-window aol-window aol-today-window">
+                <div class="window-title-bar">
+                    <span>Welcome, Guest!</span>
+                    <div class="window-controls">
+                        <button class="win-btn-small">_</button>
+                        <button class="win-btn-small">[ ]</button>
+                        <button class="win-btn-small">X</button>
+                    </div>
+                </div>
+                <div class="aol-today-content">
+                    <div class="aol-channels-sidebar">
+                        <div class="channel-btn">AOL Today</div>
+                        <div class="channel-btn">News</div>
+                        <div class="channel-btn">Sports</div>
+                        <div class="channel-btn">Influence</div>
+                        <div class="channel-btn">Travel</div>
+                        <div class="channel-btn">International</div>
+                        <div class="channel-btn">Personal Finance</div>
+                        <div class="channel-btn">Computing</div>
+                        <div class="channel-btn">Research & Learn</div>
+                        <div class="channel-btn">Entertainment</div>
+                        <div class="channel-btn">Games</div>
+                        <div class="channel-btn">Interests</div>
+                        <div class="channel-btn">Lifestyles</div>
+                        <div class="channel-btn">Shopping</div>
+                        <div class="channel-btn">Health</div>
+                        <div class="channel-btn">Families</div>
+                        <div class="channel-btn">Kids Only</div>
+                        <div class="channel-btn">Local</div>
+                    </div>
+                    <div class="aol-main-feed">
+                        <div class="aol-feed-header">
+                            <h2>AOL Today</h2>
+                            <span>What's New!</span>
+                        </div>
+                        <div class="aol-feed-body">
+                            <div class="aol-feature">
+                                <div class="aol-placeholder-img">TOP NEWS</div>
+                                <div class="aol-feature-text">
+                                    <h3><a href="#">The Millennium Approaches!</a></h3>
+                                    <p>Are your computers Y2K compliant? Learn how to protect your essential data.</p>
+                                </div>
+                            </div>
+                            <hr class="aol-hr">
+                            <div class="aol-news-list">
+                                <ul>
+                                    <li><a href="#">Stock Market Hits Record Highs as Tech Booms</a></li>
+                                    <li><a href="#">Star Wars: The Phantom Menace Trailer Released Online</a></li>
+                                    <li><a href="#">Download the latest Netscape Navigator 4.0</a></li>
+                                    <li><a href="#">You've Got Mail! hits theaters this Friday</a></li>
+                                </ul>
+                            </div>
+                            <hr class="aol-hr">
+                            <div class="aol-weather-widgets">
+                                <div class="aol-weather-box">
+                                    <span>My Weather</span>
+                                    <strong>72° F</strong>
+                                    <span>Sunny</span>
+                                </div>
+                                <div class="aol-feature-text">
+                                    <h3><a href="#">Chat with Leonardo DiCaprio!</a></h3>
+                                    <p>Join the VIP chat room tonight at 8 PM EST.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Buddy List Window -->
+            <div class="win95-window aol-window aol-buddy-list">
+                <div class="window-title-bar">
+                    <span>Buddy List Window</span>
+                    <div class="window-controls">
+                        <button class="win-btn-small">_</button>
+                        <button class="win-btn-small">X</button>
+                    </div>
+                </div>
+                <div class="aol-buddy-content">
+                    <div class="buddy-tabs">
+                        <div class="buddy-tab active">Buddies</div>
+                        <div class="buddy-tab">Family</div>
+                        <div class="buddy-tab">Co-Workers</div>
+                    </div>
+                    <div class="buddy-tree">
+                        <div class="buddy-group">
+                            <span class="group-toggle">[-]</span> Buddies (3/8)
+                        </div>
+                        <ul class="buddy-ul">
+                            <li><span class="buddy-icon">*</span> Surfer99</li>
+                            <li><span class="buddy-icon">*</span> xXShadowXx</li>
+                            <li><span class="buddy-icon">*</span> Sk8rBoi4Real</li>
+                        </ul>
+                        <div class="buddy-group">
+                            <span class="group-toggle">[+]</span> Family (0/4)
+                        </div>
+                        <div class="buddy-group">
+                            <span class="group-toggle">[-]</span> Co-Workers (1/5)
+                        </div>
+                        <ul class="buddy-ul">
+                            <li><span class="buddy-icon">*</span> BossManSteve</li>
+                        </ul>
+                    </div>
+                    <div class="buddy-actions">
+                        <button class="win-btn-small">Locate</button>
+                        <button class="win-btn-small">IM</button>
+                        <button class="win-btn-small">Setup</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

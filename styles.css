@@ -1,0 +1,786 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+    background-color: #008080;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Press Start 2P', 'MS Sans Serif', sans-serif;
+    color: #000;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.win95-window,
+.win95-container {
+    background-color: #c0c0c0;
+    border-top: 3px solid #ffffff;
+    border-left: 3px solid #ffffff;
+    border-right: 3px solid #808080;
+    border-bottom: 3px solid #808080;
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.8);
+    image-rendering: pixelated;
+}
+
+.win95-window {
+    width: 90%;
+    max-width: 450px;
+    padding: 3px;
+    display: flex;
+    flex-direction: column;
+}
+
+.window-title-bar {
+    background-color: #000080;
+    color: #ffffff;
+    padding: 4px 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    letter-spacing: 0px;
+}
+
+.window-controls {
+    display: flex;
+    gap: 4px;
+}
+
+.win-btn-small {
+    background-color: #c0c0c0;
+    color: #000;
+    font-family: inherit;
+    font-size: 10px;
+    width: 20px;
+    height: 20px;
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #808080;
+    border-bottom: 2px solid #808080;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.window-content {
+    padding: 20px 16px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.logon-form {
+    flex: 1;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 10px;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.input-group label {
+    width: 80px;
+}
+
+.win-input {
+    flex: 1;
+    min-width: 120px;
+    background: #ffffff;
+    border-top: 2px solid #808080;
+    border-left: 2px solid #808080;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    padding: 6px;
+    font-family: inherit;
+    font-size: 10px;
+    color: #000;
+}
+
+.win-input:disabled {
+    background: #e0e0e0;
+    color: #808080;
+}
+
+.logon-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.win-btn {
+    background-color: #c0c0c0;
+    color: #000;
+    font-family: inherit;
+    font-size: 12px;
+    padding: 8px 20px;
+    border-top: 3px solid #ffffff;
+    border-left: 3px solid #ffffff;
+    border-right: 3px solid #808080;
+    border-bottom: 3px solid #808080;
+    cursor: pointer;
+    box-shadow: 1px 1px 0px #000;
+}
+
+.win-btn:active:not(:disabled) {
+    border-top: 3px solid #808080;
+    border-left: 3px solid #808080;
+    border-right: 3px solid #ffffff;
+    border-bottom: 3px solid #ffffff;
+    box-shadow: inset 1px 1px 0px #000;
+}
+
+.win-btn:disabled {
+    color: #808080;
+    text-shadow: 1px 1px 0 #fff;
+    cursor: not-allowed;
+}
+
+.win95-container {
+    width: 95%;
+    max-width: 600px;
+    padding: 6px;
+    display: flex;
+    flex-direction: column;
+}
+
+.status-bar {
+    background: repeating-linear-gradient(45deg,
+            #000080,
+            #000080 8px,
+            #1010a0 8px,
+            #1010a0 16px);
+    color: #ffffff;
+    padding: 10px 12px;
+    font-size: 11px;
+    line-height: 1.5;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #ffffff;
+    border-left: 1px solid #ffffff;
+    border-right: 1px solid #808080;
+    border-bottom: 1px solid #808080;
+}
+
+.emblem-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px 40px;
+}
+
+.emblem-logo {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+}
+
+.emblem-text {
+    font-size: 20px;
+    color: #000080;
+    text-shadow: 2px 2px 0px #ffffff, 3px 3px 0px #808080;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.panels-wrapper {
+    background-color: #d8d8eb;
+    padding: 16px;
+    margin: 0 16px 8px;
+    border-top: 3px solid #808080;
+    border-left: 3px solid #808080;
+    border-right: 3px solid #ffffff;
+    border-bottom: 3px solid #ffffff;
+    box-shadow: inset 1px 1px 0px #000;
+}
+
+.panels {
+    display: flex;
+    gap: 12px;
+}
+
+.panel {
+    flex: 1;
+    background-color: #000000;
+    height: 140px;
+    border-top: 3px solid #808080;
+    border-left: 3px solid #808080;
+    border-right: 3px solid #ffffff;
+    border-bottom: 3px solid #ffffff;
+    position: relative;
+    box-shadow: inset 2px 2px 0px #000;
+}
+
+.panel-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.frame-svg {
+    width: 80%;
+    height: 80%;
+}
+
+.actions {
+    padding: 16px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+@keyframes seqFrame1 {
+    0% {
+        opacity: 1;
+    }
+
+    33.33% {
+        opacity: 1;
+    }
+
+    33.34% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes seqFrame2 {
+    0% {
+        opacity: 0;
+    }
+
+    33.33% {
+        opacity: 0;
+    }
+
+    33.34% {
+        opacity: 1;
+    }
+
+    66.66% {
+        opacity: 1;
+    }
+
+    66.67% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes seqFrame3 {
+    0% {
+        opacity: 0;
+    }
+
+    66.66% {
+        opacity: 0;
+    }
+
+    66.67% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.panel-left .panel-content {
+    animation: seqFrame1 1.2s infinite;
+}
+
+.panel-mid .panel-content {
+    animation: seqFrame2 1.2s infinite;
+}
+
+.panel-right .panel-content {
+    animation: seqFrame3 1.2s infinite;
+}
+
+.aol-workspace {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #008080;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+    overflow-x: hidden;
+}
+
+.aol-menubar {
+    background-color: #c0c0c0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2px 8px;
+    border-bottom: 2px solid #ffffff;
+    box-shadow: 0 2px 0 #808080;
+    font-size: 11px;
+    font-family: 'MS Sans Serif', sans-serif;
+    flex-wrap: wrap;
+}
+
+.aol-menu-items {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.aol-menu-items span {
+    padding: 4px 8px;
+    cursor: pointer;
+}
+
+.aol-menu-items span:hover {
+    background-color: #000080;
+    color: #ffffff;
+}
+
+.aol-logo-container {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #000080;
+    font-weight: bold;
+    margin-left: auto;
+}
+
+.aol-logo-triangle {
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 10px solid #000080;
+}
+
+.aol-toolbar {
+    background-color: #c0c0c0;
+    display: flex;
+    gap: 4px;
+    padding: 6px 8px;
+    border-bottom: 2px solid #ffffff;
+    box-shadow: 0 2px 0 #808080;
+    flex-wrap: wrap;
+}
+
+.toolbar-btn {
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #808080;
+    border-bottom: 2px solid #808080;
+    padding: 4px 8px;
+    font-size: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    font-family: 'MS Sans Serif', sans-serif;
+    min-width: 40px;
+}
+
+.toolbar-btn:active {
+    border-top: 2px solid #808080;
+    border-left: 2px solid #808080;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+}
+
+.toolbar-divider {
+    width: 2px;
+    background-color: #808080;
+    border-right: 1px solid #ffffff;
+    margin: 4px 8px;
+}
+
+.aol-urlbar {
+    background-color: #c0c0c0;
+    padding: 6px 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'MS Sans Serif', sans-serif;
+    font-size: 11px;
+    border-bottom: 2px solid #ffffff;
+    box-shadow: 0 2px 0 #808080;
+    flex-wrap: wrap;
+}
+
+.aol-urlbar .win-input {
+    flex: 1;
+    font-family: Arial, sans-serif;
+    padding: 4px;
+    min-width: 150px;
+}
+
+.aol-desktop {
+    flex: 1;
+    position: relative;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-content: flex-start;
+    justify-content: center;
+    overflow-y: auto;
+}
+
+.aol-window {
+    box-shadow: 2px 2px 0px #000;
+    display: flex;
+    flex-direction: column;
+}
+
+.aol-today-window {
+    width: 100%;
+    max-width: 650px;
+    height: auto;
+    min-height: 450px;
+    background-color: #c0c0c0;
+    flex: 1 1 400px;
+}
+
+.aol-today-content {
+    display: flex;
+    flex: 1;
+    background-color: #ffffff;
+    margin: 4px;
+    border-top: 2px solid #808080;
+    border-left: 2px solid #808080;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    overflow: hidden;
+}
+
+.aol-channels-sidebar {
+    width: 140px;
+    background-color: #ffffff;
+    border-right: 2px solid #808080;
+    overflow-y: auto;
+    flex-shrink: 0;
+}
+
+.channel-btn {
+    padding: 6px 8px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #000080;
+    border-bottom: 1px solid #ffffff;
+    cursor: pointer;
+}
+
+.channel-btn:first-child {
+    background-color: #ffcc00;
+    color: #000080;
+    font-size: 14px;
+}
+
+.channel-btn:hover {
+    background-color: #0000cc;
+}
+
+.aol-main-feed {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    background-color: #ffffcc;
+    font-family: 'Times New Roman', Times, serif;
+    min-width: 250px;
+}
+
+.aol-feed-header {
+    background-color: #ff0000;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 8px 12px;
+    border-bottom: 2px solid #000000;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.aol-feed-header h2 {
+    margin: 0;
+    font-size: 24px;
+    font-family: Arial, sans-serif;
+    font-style: italic;
+    font-weight: 900;
+}
+
+.aol-feed-header span {
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.aol-feed-body {
+    padding: 16px;
+    overflow-y: auto;
+}
+
+.aol-feature {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+
+.aol-placeholder-img {
+    width: 120px;
+    height: 90px;
+    background-color: #000080;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    border: 2px solid #000000;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.aol-feature-text {
+    flex: 1;
+    min-width: 200px;
+}
+
+.aol-feature-text h3 {
+    margin: 0 0 4px 0;
+    font-size: 18px;
+    font-family: Arial, sans-serif;
+}
+
+.aol-feature-text p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.aol-feature-text a,
+.aol-news-list a {
+    color: #0000EE;
+    text-decoration: underline;
+}
+
+.aol-hr {
+    border: 0;
+    border-top: 2px solid #808080;
+    border-bottom: 2px solid #ffffff;
+    margin: 12px 0;
+}
+
+.aol-news-list ul {
+    list-style-type: square;
+    padding-left: 20px;
+    margin: 0;
+}
+
+.aol-news-list li {
+    margin-bottom: 8px;
+    font-size: 15px;
+}
+
+.aol-weather-widgets {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.aol-weather-box {
+    background-color: #c0c0c0;
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #808080;
+    border-bottom: 2px solid #808080;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    min-width: 100px;
+}
+
+.aol-weather-box strong {
+    font-size: 20px;
+    color: #000080;
+    margin: 4px 0;
+}
+
+.aol-buddy-list {
+    width: 100%;
+    max-width: 260px;
+    height: auto;
+    flex: 1 1 200px;
+    min-height: 400px;
+}
+
+.aol-buddy-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin: 4px;
+    background-color: #c0c0c0;
+}
+
+.buddy-tabs {
+    display: flex;
+    border-bottom: 2px solid #ffffff;
+    flex-wrap: wrap;
+}
+
+.buddy-tab {
+    padding: 4px 6px;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    background-color: #c0c0c0;
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #808080;
+    cursor: pointer;
+    margin-top: 2px;
+}
+
+.buddy-tab.active {
+    background-color: #e0e0e0;
+    border-bottom: 2px solid #e0e0e0;
+    margin-bottom: -2px;
+    z-index: 10;
+}
+
+.buddy-tree {
+    flex: 1;
+    background-color: #ffffff;
+    border-top: 2px solid #808080;
+    border-left: 2px solid #808080;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    padding: 6px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    overflow-y: auto;
+    min-height: 200px;
+}
+
+.buddy-group {
+    font-weight: bold;
+    margin-top: 4px;
+    cursor: pointer;
+}
+
+.group-toggle {
+    font-family: monospace;
+    font-weight: normal;
+}
+
+.buddy-ul {
+    list-style: none;
+    padding-left: 16px;
+    margin: 4px 0;
+}
+
+.buddy-icon {
+    color: #ffcc00;
+    font-weight: bold;
+    text-shadow: 1px 1px 0 #000;
+}
+
+.buddy-actions {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.buddy-actions .win-btn-small {
+    width: auto;
+    padding: 4px 8px;
+    font-size: 11px;
+    font-family: Arial, sans-serif;
+}
+
+@media (max-width: 768px) {
+    .aol-desktop {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 10px;
+        flex-wrap: nowrap;
+    }
+
+    .aol-today-window,
+    .aol-buddy-list {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+        flex: none;
+    }
+
+    .aol-today-content {
+        flex-direction: column;
+    }
+
+    .aol-channels-sidebar {
+        width: 100%;
+        max-height: 120px;
+        display: flex;
+        flex-wrap: wrap;
+        border-right: none;
+        border-bottom: 2px solid #808080;
+    }
+
+    .channel-btn {
+        flex: 1 1 auto;
+        padding: 8px;
+        text-align: center;
+        border-right: 1px solid #ffffff;
+    }
+
+    .panels {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .panel {
+        height: 100px;
+    }
+
+    .emblem-logo {
+        width: 80px;
+        height: 80px;
+    }
+
+    .emblem-text {
+        font-size: 16px;
+    }
+}
